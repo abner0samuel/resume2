@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.5rem;
+    height: 3rem;
+    align-items: center;
+    border: none;
+    font-size: 3rem;
+    background-color: transparent;
+}
+.menu-button-span {
+    width: 25px;
+    height: 5px;
+    background-color: aqua;
+    display: none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    background: aqua;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 9%;
+    background: rgba(0, 0, 0, 0.699);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo{
+    font-size: 3rem;
+    color: aqua;
+    font-weight: 800;
+    transition: 0.6s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.navber a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.6s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+.navber a:hover,
+.navber a.active{
+    color: aqua;
+    border-bottom: 3px solid turquoise;
+}
+#home{
+    margin-top: 20rem;
+    grid-template-columns: 1fr 1fr;
+    display: flex ;
+    gap: 50px;
+}
+
+.home_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #343F4F;
+}
+.textmotion{
+    display: inline-flex;
+}
+.textmotion .home_text{
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+}
+.textmotion .txt{
+    margin-left: 15px;
+    height:90px; 
+    line-height: 90px; 
+    /* background: red; */
+    overflow: hidden;
+    transition: all ease-in-out;
+}
+.txt li{
+    color: #FC6D6D;
+    list-style: none;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: silde 6s steps(4) infinite;
+}
+@keyframes  silde {
+    100%{
+       top: -360px;
+    }
+}
+.txt li span{
+    position: relative;
+}
+
+.txt li span::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #343F4F;
+    border-left: 1px solid  #FC6D6D;
+    animation: tying 1s steps(19) infinite;
+}
+@keyframes  tying{
+    100%{
+        left: 100%;
+        /* margin: 0 -35px 0 35px ; */
+    }
+}
+
+
+
+.abner{
+    width: 300px;
+}
