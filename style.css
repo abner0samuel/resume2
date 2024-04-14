@@ -32,8 +32,9 @@ html{
     overflow-x: hidden;
 }
 body{
-    background: aqua;
+    background-color:rgb(0, 162, 255);
 }
+
 .header{
     position: fixed;
     top: 0;
@@ -69,11 +70,12 @@ body{
     color: aqua;
     border-bottom: 3px solid turquoise;
 }
+/* text animation */
 #home{
-    margin-top: 20rem;
-    grid-template-columns: 1fr 1fr;
+    margin: 10rem;
     display: flex ;
-    gap: 50px;
+    justify-content: space-between;
+   
 }
 
 .home_main{
@@ -81,7 +83,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #343F4F;
+    background: transparent;
 }
 .textmotion{
     display: inline-flex;
@@ -99,43 +101,252 @@ body{
     overflow: hidden;
     transition: all ease-in-out;
 }
-.txt li{
-    color: #FC6D6D;
-    list-style: none;
-    font-size: 60px;
-    font-weight: 500;
-    position: relative;
-    top: 0;
-    animation: silde 6s steps(4) infinite;
+
+.text-animation{
+    font-size:34px;
+    font-weight:600;
+    min-width:280px;
+    color: aqua;
 }
-@keyframes  silde {
-    100%{
-       top: -360px;
+.text-animation span{
+    position:relative;
+}
+.text-animation span::before{
+    content:"web developer";
+    color:#fff;
+    animation: words 20s infinite;
+}
+.text-animation span::after{
+    content:" ";
+    background-color: rgb(0, 162, 255); 
+    position:absolute;
+    width:calc(100% + 8px);
+    height:100%;
+    border-left: rgb(0, 162, 255) solid 3px ;
+    right:-8px;
+    animation:cursor 0.6s infinite,typing 20s steps(14) infinite;
+}
+@keyframes cursor{
+    to{
+        border-left:2px  solid   rgb(0, 162, 255); 
+  }
+}
+@keyframes words{
+    0%,20%{
+        content:"Backend developer";
+    }
+    21%,40%{
+        content:"Softwere developer"
+    }
+    41%,60%{
+        content:"UI/UX designer"
+    }
+    61%,80%{
+        content:"Fontend developer"
+    }
+    81%,100%{
+       content:"Python developer"
     }
 }
-.txt li span{
-    position: relative;
+@keyframes typing{
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width:0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width:calc(100% + 8px)
+    }
 }
 
-.txt li span::after{
-    content: " ";
-    position: absolute;
-    left: 0;
-    height: 100%;
+
+.home_img{
+    transform: skew(0deg,-10deg)translateY(120deg);
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+   
+}
+.home_img::after {
+    content: "";
+    width: 350px;
+  }
+  
+
+
+/* style the home img and animaton  */
+
+.first_img{
+    opacity: 0.5;
+    border: 1px solid black;
+    box-shadow:rgba(0, 0, 0, 0.582) -5px  -5px 5px 5px  inset,rgba(0, 0, 0, 0.582) 5px 5px 5px 5px inset;
     width: 100%;
-    background: #343F4F;
-    border-left: 1px solid  #FC6D6D;
-    animation: tying 1s steps(19) infinite;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+
+  
+
 }
-@keyframes  tying{
-    100%{
-        left: 100%;
-        /* margin: 0 -35px 0 35px ; */
+.first_img:hover{
+    animation: infinite linear reverse rotate 3s  1s;
+    opacity: 1;
+}
+.second{
+    filter: drop-shadow(50px);
+}
+@keyframes rotate {
+    0% {
+        filter: hue-rotate(0deg);
+        box-shadow:rgba(255, 0, 0, 0.836) -10px -10px 10px 10px ,rgba(0, 0, 255, 0.589) 10px 10px 10px 10px;
+
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+        box-shadow:rgba(255, 0, 0, 0.836) -10px -10px 10px 10px ,rgba(0, 0, 255, 0.589) 10px 10px 10px 10px;
+
     }
 }
 
+.home_img1{
+    width:400px;
+    height:400px;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    margin: 50px;
+}
+.home_img1 span{
+    position: absolute;
+    display: block;
+}
 
-
-.abner{
-    width: 300px;
+.home_img1 span:nth-child(2){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,transparent,white);
+    
+   
+}
+.home_img1:hover span:nth-child(2){
+    left:  100%;
+    transition: 1s; 
+}
+.home_img1 span:nth-child(4){
+    bottom:0;
+    right:  -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(270deg,transparent,white);
+   
+}
+.home_img1:hover span:nth-child(4){
+    right:  100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+.home_img1 span:nth-child(3){
+    top: -100%;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,white);
+   
+}
+.home_img1:hover span:nth-child(3){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+.home_img1 span:nth-child(5){
+    bottom: -100%;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,white);
+   
+}
+.home_img1:hover span:nth-child(5){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+/* .text{
+    color: #fff;
+} */
+.programming_la {
+    display: flex;
+    justify-content: space-around;
+    font-size: 3rem;
+    background-color: transparent;
+    transform: translateX(-200rem);
+    scale: 0 1;
+    animation: roll linear;
+    animation-timeline: view();
+}
+@keyframes roll{
+    to{
+        scale: 2;
+       transform: translateX(230rem);
+    }
+}
+.number{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: #fff 1rem solid ;
+}            
+.python,.javascript,.html,.css{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border: 3px black solid;
+    border-radius: 10px;
+    width: 200px;
+    height: 250px;
+    box-sizing: border-box;
+    box-shadow: #fff -3px 3px 5px 5px;
+    
+}
+#python{
+    border-left-color: black;
+    font-weight: bolder;
+}
+#javascript{
+    border-bottom-color: black;
+    border-right-color: black;
+    font-weight: bolder;
+}
+#html{
+    border-top-color: black;
+    border-left-color: black;
+    border-bottom-color: black;
+    font-weight: bolder;
+}
+#css{
+    border-bottom-color: black;
+    border-top-color: black;
+    border-right-color: black;
+    font-weight: bolder;
+}
+h2{
+    color: white;
+    font-size: 5rem;
+    font-family: 'Times New Roman', Times, serif;
 }
